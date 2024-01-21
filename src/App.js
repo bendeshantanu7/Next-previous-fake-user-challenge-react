@@ -1,7 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
+import useIterator from './useIterator';
 
 function App() {
+  const [userList, currentUser, prev, next] = useIterator('https://randomuser.me/api/')
+  console.log('userList', userList)
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +20,9 @@ function App() {
         >
           Learn React
         </a>
+        <button type='button' onClick={() => next()}>Next</button>
+        <button type='button' onClick={() => prev()}>Previous</button>
+        {JSON.stringify(currentUser)}
       </header>
     </div>
   );
